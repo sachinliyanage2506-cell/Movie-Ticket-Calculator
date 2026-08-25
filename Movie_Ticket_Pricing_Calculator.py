@@ -1,11 +1,7 @@
 """
 Movie Ticket Purchase Program
 ------------------------------
-- Take ticket orders (title + quantity)
-- Print a receipt with group discount (10% off if qty >= 4 on a line)
-  and an optional member discount (5% off the whole order)
-- Show a sales summary and simple analytics, all based on the
-  ACTUAL (discounted) revenue that was charged
+
 """
 
 movies = {
@@ -19,9 +15,9 @@ purchases = []          # list of (title, qty, price_each)
 running_subtotal = 0.0  # pre-discount running total, shown during input
 
 
-# -------------------------
-# Helper functions (Part D)
-# -------------------------
+
+# Helper functions
+
 def apply_group_discount(qty, price_each):
     """
     Compute the line total and apply a 10% discount if qty >= 4.
@@ -41,11 +37,12 @@ def apply_member_discount(total, is_member):
     return total * 0.95 if is_member else total
 
 
-# -------------------------
+
 # Input loop
-# -------------------------
+
 while True:
     title = input("Enter movie title (or 'done' to finish): ").strip()
+    title = title[0].upper() + title[1:].lower() if title else title
     if title.lower() == "done":
         break
 
@@ -71,9 +68,9 @@ while True:
     print(f"Running subtotal (before discounts): ${running_subtotal:.2f}\n")
 
 
-# -------------------------
+
 # Receipt with discounts
-# -------------------------
+
 print("\n--- Receipt ---")
 
 grand_total_before_member = 0.0
@@ -122,10 +119,10 @@ else:
     print(f"Grand Total: ${final_total:.2f}")
 
 
-# -------------------------
-# Sales summary (Part C) — built from ACTUAL discounted revenue,
+
+# Sales summary — built from ACTUAL discounted revenue,
 # so it always matches the receipt above
-# -------------------------
+
 tickets_by_movie = {}
 revenue_by_movie = {}
 
@@ -143,9 +140,9 @@ for title in sorted(tickets_by_movie):
     print(f"{title:30} | {tix:7d} | ${rev:10.2f}")
 
 
-# -------------------------
-# Analytics (Part E)
-# -------------------------
+
+# Analytics
+
 print("\n--- Analytics ---")
 
 # Top-selling movie by tickets
