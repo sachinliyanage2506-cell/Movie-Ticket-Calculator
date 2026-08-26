@@ -1,5 +1,8 @@
 # Movie-Ticket-Calculator
 
+How to Run:
+- Run on any Python editor, personally I used IDLE (Python 3.14)
+
 A command-line Python program for purchasing movie tickets. It supports multiple titles per transaction, applies group and membership discounts automatically, prints a full receipt, and generates a sales summary with basic analytics.
 
 Features
@@ -12,9 +15,6 @@ Features
 
 Tech Stack
 - Python
-
-Installation
-- Personally I used IDLE
 
 
 Potential improvements on the project
